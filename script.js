@@ -21,8 +21,12 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     //Check the input so it is the input we want
-    //a-convert player selection to lowercase
+    //a-convert player selection to usable format
+    //Convert scissor to usable format scissors
     playerSelection = playerSelection.toLowerCase();
+    if (playerSelection === 'scissor') {
+        playerSelection = 'scissors';
+    }
     //b-Check input to be a string of either rock paper or scissors
     if (playerSelection === 'rock' ||
         playerSelection === 'paper' ||
@@ -54,5 +58,19 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//Test by printing output
-console.log(playRound('rock', computerPlay()))
+function game() {
+    for (i = 0; i < 5; i++) {
+        let inputUser = window.prompt('Rock, paper or scissors?');
+        // when inputUser is not rock,paper or scissors pick a
+        // random one for inputUser
+        if (inputUser !== "rock" && inputUser !== "paper" &&
+            inputUser !== "scissors") {
+                inputUser = computerPlay();
+        }
+        let result;
+        result = playRound(inputUser, computerPlay());
+        console.log(result);
+    }
+}
+
+game()
