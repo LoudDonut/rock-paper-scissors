@@ -22,14 +22,29 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     //Check the input so it is the input we want
     //a-convert player selection to lowercase
-    playerSelection = playerSelection.toLower();
+    playerSelection = playerSelection.toLowerCase();
     //b-Check input to be a string of either rock paper or scissors
     if (playerSelection === 'rock' ||
         playerSelection === 'paper' ||
         playerSelection === 'scissors') {
             //Match user input vs comp input
-            if (playerSelection === computerSelection) {
-                console.log("It's a tie!")
+            if (playerSelection === "rock" &&
+                computerSelection === "scissors") {
+                return "You win! Computer loses!";
+            }
+            else if (playerSelection === "paper" &&
+                computerSelection === "rock") {
+                return "You win! Computer loses!";
+            }
+            else if (playerSelection === "scissors" &&
+                computerSelection === "paper") {
+                return "You win! Computer loses!";
+            }
+            else if (playerSelection === computerSelection) {
+                return "It's a tie!";
+            }
+            else {
+                return "You lost! The computer wins!";
             }
             //Returns a string naming the winner on the console
     }
@@ -39,3 +54,5 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+//Test by printing output
+console.log(playRound('rock', computerPlay()))
