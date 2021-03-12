@@ -4,32 +4,38 @@ function computerPlay() {
     let randNumber = Math.floor(Math.random() * 3);
     //if number = 0 then rock etc...
     if (randNumber === 0) {
-        return "Rock";
+        return "rock";
     }
     else if (randNumber === 1) {
-        return "Paper";
+        return "paper";
     }
     else if (randNumber === 2) {
-        return "Scissors";
+        return "scissors";
     }
     else {
-        return "Something went wrong";
+        console.log("Something went wrong in computerPlay()");
     }
     //return value
 }
     //ASSIGN STRING TO VARIABLE
 
 function playRound(playerSelection, computerSelection) {
-    //2-Assign input to a variable
-    //3-Check input to be a string of either rock paper or scissors
-    //4-Determine computer input by randomizing a number/n
-    //4-Between 0 and 2
-    //5- Assigning that number to a string of rock paper scissors
-    //6-Match input against computer input
-    //6a-Set rules for all possible outcomes
-    //6b-If rock vs paper then paper wins etc....
-    //6c-Output the winner and the loser
+    //Check the input so it is the input we want
+    //a-convert player selection to lowercase
+    playerSelection = playerSelection.toLower();
+    //b-Check input to be a string of either rock paper or scissors
+    if (playerSelection === 'rock' ||
+        playerSelection === 'paper' ||
+        playerSelection === 'scissors') {
+            //Match user input vs comp input
+            if (playerSelection === computerSelection) {
+                console.log("It's a tie!")
+            }
+            //Returns a string naming the winner on the console
+    }
+    else {
+        // If its not then ask for correct input
+        console.log("Please choose either rock, paper or scissors");
+    }
 }
 
-computerPick = computerPlay();
-console.log(computerPick);
