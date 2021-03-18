@@ -50,7 +50,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    for (i = 0; i < 5; i++) {
+    //for (i = 0; i < 5; i++) { //Round counter
         let inputUser = window.prompt('Rock, paper or scissors?');
         // when inputUser is not rock,paper or scissors pick a
         // random one for inputUser
@@ -60,8 +60,10 @@ function game() {
         }
         let result;
         result = playRound(inputUser, computerPlay());
-        console.log(result);
-    }
+        alert(result);
+    //}
 }
 
-game()
+document.addEventListener("click", function(e) {
+    console.log(e.target);
+})
