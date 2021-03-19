@@ -2,18 +2,45 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<script src="https://kit.fontawesome.com/a475653b60.js" crossorigin="anonymous"></script>
 	<link href="Assets/eric-meyers-css-reset-base.css" rel="stylesheet">
 	<link href="style.css" rel="stylesheet">
 	<title>Rock Paper Scissors</title>
 </head>
 <body>
-	<div id="buttons">
-		<button id="rock">Rock</button>
-		<button id="paper">Paper</button>
-		<button id="scissors">Scissors</button>
+	<div id="playerSide">
+		<img id="playerImg" src="Assets/player.jpg" alt="The player">
+		<p id="playerScore">Score: 0</p>
+		<div id="buttons">
+			<button id="rock"><i class="fas fa-fist-raised"></i>
+				Rock
+			</button>
+			<button id="paper"><i class="far fa-hand-paper"></i>
+				Paper
+			</button>
+			<button id="scissors"><i class="far fa-hand-peace"></i>
+				Scissors
+			</button>
+		</div>
 	</div>
-	<div id="resultContainer">
+	<div id="middleContainer">
 		<p id="declareVictor">Who will win?</p>
+		<p>Round: 0</p>
+	</div>
+	<div id="computerSide">
+		<img id="computerImg" src="Assets/computer.JPG" alt="The computer">
+		<p id="computerScore">Score: 0</p>
+		<div id="buttons">
+			<button type="button" disabled><i class="fas fa-fist-raised"></i>
+				Rock
+			</button>
+			<button type="button" disabled><i class="far fa-hand-paper"></i>
+				Paper
+			</button>
+			<button type="button" disabled><i class="far fa-hand-peace"></i>
+				Scissors
+			</button>
+		</div>
 	</div>
 <script src="script.js"></script>    
 </body>     

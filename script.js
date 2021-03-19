@@ -1,6 +1,4 @@
-//Function that randomly returns either Rock Paper or Scissors
-function computerPlay() {
-	//Calculate random number between 0 and 2 and store it
+function computerPlay() { //returns a random choice for playRound
 	let randNumber = Math.floor(Math.random() * 3);
 	if (randNumber === 0) {
 		return "rock";
@@ -16,52 +14,50 @@ function computerPlay() {
 	}
 }
 
-function playRound(playerSelection, computerSelection) {
-	playerSelection = playerSelection.toLowerCase();
+function playRound(playerSelection) {
 	computerSelection = computerPlay();
-	if (playerSelection === 'scissor') {
-		playerSelection = 'scissors';
+	if (playerSelection === "rock" &&
+		computerSelection === "scissors") {
+		return "player wins";
 	}
-	if (playerSelection === 'rock' ||
-		playerSelection === 'paper' ||
-		playerSelection === 'scissors') {
-			//Match user input vs comp input
-			if (playerSelection === "rock" &&
-				computerSelection === "scissors") {
-				return "player wins";
-			}
-			else if (playerSelection === "paper" &&
-				computerSelection === "rock") {
-				return "player wins";
-			}
-			else if (playerSelection === "scissors" &&
-				computerSelection === "paper") {
-				return "player wins";
-			}
-			else if (playerSelection === computerSelection) {
-				return "tie";
-			}
-			else {
-				return "computer wins";
-			}
+	else if (playerSelection === "paper" &&
+		computerSelection === "rock") {
+		return "player wins";
+	}
+	else if (playerSelection === "scissors" &&
+		computerSelection === "paper") {
+		return "player wins";
+	}
+	else if (playerSelection === computerSelection) {
+		return "tie";
 	}
 	else {
-		console.log("Please choose either rock, paper or scissors");
+		return "computer wins";
 	}
 }
 
+function displayScore() {
+	
+}
+
+//MAIN PROGRAM
+
 const buttons = document.querySelectorAll('#buttons');
-const resultContainer = document.querySelector('#resultContainer');
+const middleContainer = document.querySelector('#middleContainer');
 
 buttons.forEach((button) => {
 	button.addEventListener("click", function(e) {
+		let playerWins = 0;
+		let computerWins = 0;
 		let winner = playRound(e.target.id);
 		const declareVictor = document.querySelector('#declareVictor');
 		if (winner === "player wins") {
 			declareVictor.textContent = "Player wins!";
+			playerWins += 1;
 		}
 		else if (winner === "computer wins") {
 			declareVictor.textContent = "You lost!";
+			computerWins += 1;
 		}
 		else {
 			declareVictor.textContent = "Tie!";

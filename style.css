@@ -1,0 +1,32 @@
+body {
+	color: white;
+	background-color: black;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 200px;
+}
+
+#playerSide {
+	border: 1px solid white;
+	width: 300px;
+}
+
+#playerImg {
+	height: 200px;
+	width: auto;
+}
+
+#middleContainer {
+	border: 1px solid white;
+}
+
+#computerSide {
+	border: 1px solid white;
+	width: 300px;
+}
+
+#computerImg {
+	height: 200px;
+	width: auto;
+}
