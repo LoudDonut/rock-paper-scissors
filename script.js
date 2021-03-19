@@ -36,31 +36,70 @@ function playRound(playerSelection) {
 	}
 }
 
-function displayScore() {
-	
+function displayPlayerScore(points) {
+	const playerScore = document.querySelector("#playerScore");
+	playerScore.textContent = "Score: " + points;
+}
+
+function displayComputerScore(points) {
+	const computerScore = document.querySelector("#computerScore");
+	computerScore.textContent = "Score: " + points;
+}
+
+function displayRounds(rounds) {
+	const roundCounter = document.querySelector("#roundCounter");
+	roundCounter.textContent = "Rounds: " + rounds;
+}
+
+function calcAndDisplay(winner) {
+	if (winner === "player") {
+		playerScore += 1;
+		rounds -= 1;
+		displayPlayerScore(playerScore);
+		displayRounds(rounds);
+	}
+	else {
+		computerWins += 1;
+		rounds -= 1;
+		displayComputerScore(computerWins);
+		displayRounds(rounds);
+	}
 }
 
 //MAIN PROGRAM
 
 const buttons = document.querySelectorAll('#buttons');
 const middleContainer = document.querySelector('#middleContainer');
+let playerScore = 0;
+let computerWins = 0;
+let rounds = 5;
 
 buttons.forEach((button) => {
 	button.addEventListener("click", function(e) {
-		let playerWins = 0;
-		let computerWins = 0;
 		let winner = playRound(e.target.id);
 		const declareVictor = document.querySelector('#declareVictor');
-		if (winner === "player wins") {
-			declareVictor.textContent = "Player wins!";
-			playerWins += 1;
-		}
-		else if (winner === "computer wins") {
-			declareVictor.textContent = "You lost!";
-			computerWins += 1;
-		}
-		else {
-			declareVictor.textContent = "Tie!";
+		if (rounds > 0) {
+			if (rounds === 1) {
+				if (playerScore > computerWins) {
+					declareVictor.textContent = "PLAYER WINS THE GAME";
+					calcAndDisplay("player");
+				}
+				else {
+					declareVictor.textContent = "COMPUTER WINS THE GAME";
+					calcAndDisplay("computer");
+				}
+			}
+			else if (winner === "player wins") {
+				declareVictor.textContent = "Player wins!";
+				calcAndDisplay("player");
+			}
+			else if (winner === "computer wins") {
+				declareVictor.textContent = "You lost!";
+				calcAndDisplay("computer");
+			}
+			else {
+				declareVictor.textContent = "Tie!"; //doesnt count as a round
+			}
 		}
 	});
 });

@@ -19,6 +19,7 @@ body {
 
 #middleContainer {
 	border: 1px solid white;
+	width: 110px;
 }
 
 #computerSide {
