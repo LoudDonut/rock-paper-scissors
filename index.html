@@ -8,38 +8,44 @@
 	<title>Rock Paper Scissors</title>
 </head>
 <body>
-	<div id="playerSide">
-		<img id="playerImg" src="Assets/player.jpg" alt="The player">
-		<p id="playerScore">Score: 0</p>
-		<div id="buttons">
-			<button id="rock"><i class="fas fa-fist-raised"></i>
-				Rock
-			</button>
-			<button id="paper"><i class="far fa-hand-paper"></i>
-				Paper
-			</button>
-			<button id="scissors"><i class="far fa-hand-peace"></i>
-				Scissors
-			</button>
+	<div id="gameBox">
+		<div id="playerSide">
+			<img id="playerImg" src="Assets/player.jpg" alt="The player">
+			<div class="containerScoreButtons">
+				<p id="playerScore">Score: 0</p>
+				<div id="buttons">
+					<button id="rock"><i class="fas fa-fist-raised"></i>
+						<!--Rock-->
+					</button>
+					<button id="paper"><i class="fas fa-hand-paper"></i>
+						<!--Paper-->
+					</button>
+					<button id="scissors"><i class="fa fa-hand-peace"></i>
+						<!--Scissors-->
+					</button>
+				</div>
+			</div>
 		</div>
-	</div>
-	<div id="middleContainer">
-		<p id="declareVictor">Who will win?</p>
-		<p id="roundCounter">Rounds: 5</p>
-	</div>
-	<div id="computerSide">
-		<img id="computerImg" src="Assets/computer.JPG" alt="The computer">
-		<p id="computerScore">Score: 0</p>
-		<div id="buttons">
-			<button type="button" disabled><i class="fas fa-fist-raised"></i>
-				Rock
-			</button>
-			<button type="button" disabled><i class="far fa-hand-paper"></i>
-				Paper
-			</button>
-			<button type="button" disabled><i class="far fa-hand-peace"></i>
-				Scissors
-			</button>
+		<div id="middleContainer">
+			<p id="declareVictor">Who will win?</p>
+			<p id="roundCounter">Rounds: 5</p>
+		</div>
+		<div id="computerSide">
+			<img id="computerImg" src="Assets/computer.JPG" alt="The computer">
+			<div class="containerScoreButtons">
+				<p id="computerScore">Score: 0</p>
+				<div id="buttons">
+					<button type="button" disabled><i class="fas fa-fist-raised"></i>
+						<!--Rock-->
+					</button>
+					<button type="button" disabled><i class="fas fa-hand-paper"></i>
+						<!--Paper-->
+					</button>
+					<button type="button" disabled><i class="fas fa-hand-peace"></i>
+						<!--Scissors-->
+					</button>
+				</div>
+			</div>
 		</div>
 	</div>
 <script src="script.js"></script>    
